@@ -1,3 +1,5 @@
 rootProject.name = "learning-modular"
 include("rest-model")
-include("rest-open-api")
+include("corp-rest-spring-boot-starter")
+include("app-order")
+include("app-user")
