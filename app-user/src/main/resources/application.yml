@@ -3,3 +3,14 @@ spring:
     name: app-user
 server:
   port: 80
+  servlet:
+    context-path: "/user"
+svc:
+  order:
+    host: http://localhost
+    port: 8080
+    path: order
+  user:
+    host: http://localhost
+    port: 80
+    path: user

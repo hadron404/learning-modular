@@ -38,7 +38,7 @@ dependencies {
 //    testCompileOnly(project(":corp-rest-spring-boot-starter"))
 
     compileOnly(project(":rest-model"))
-    testCompileOnly(project(":rest-model"))
+//    testCompileOnly(project(":rest-model"))
 }
 
 dependencyManagement {

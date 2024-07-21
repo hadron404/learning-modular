@@ -5,6 +5,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "svc")
 public class ServiceProperties {
 	private URL user = new URL();
+	private URL order = new URL();
+
+	public URL getOrder() {
+		return order;
+	}
+
+	public void setOrder(URL order) {
+		this.order = order;
+	}
 
 	public URL getUser() {
 		return user;
@@ -16,7 +25,16 @@ public class ServiceProperties {
 
 	public static class URL {
 		private String host;
+		private String path;
 		private int port = 80;
+
+		public String getPath() {
+			return path;
+		}
+
+		public void setPath(String path) {
+			this.path = path;
+		}
 
 		public String getHost() {
 			return host;
@@ -32,6 +50,10 @@ public class ServiceProperties {
 
 		public void setPort(int port) {
 			this.port = port;
+		}
+
+		public String toURL() {
+			return this.host + ":" + this.port + "/" + this.path;
 		}
 	}
 }

@@ -22,18 +22,23 @@ configurations {
 repositories {
     mavenCentral()
 }
-
+extra["springCloudVersion"] = "2023.0.3"
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    compileOnly(project(":corp-rest-spring-boot-starter"))
     compileOnly(project(":rest-model"))
-    testCompileOnly(project(":rest-model"))
+//    testCompileOnly(project(":rest-model"))
 }
-
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+    }
+}
 tasks.withType<Test> {
     useJUnitPlatform()
 }

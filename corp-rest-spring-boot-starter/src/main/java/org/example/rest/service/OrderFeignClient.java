@@ -1,14 +1,14 @@
 package org.example.rest.service;
 
 
-import org.example.rest.User;
+import org.example.rest.Order;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-@FeignClient(name = "user-service")
-public interface UserFeignClient {
+@FeignClient(name = "order-service")
+public interface OrderFeignClient {
 	@GetMapping("/{id}")
-	User getUserById(@PathVariable("id") Long ID);
+	Order getOrderById(@PathVariable("id") Long ID);
 }

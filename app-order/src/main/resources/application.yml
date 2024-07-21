@@ -4,3 +4,12 @@ spring:
 svc:
   user:
     host: http://localhost
+    path: user
+logging:
+  level:
+    root: debug
+
+server:
+  port: 8080
+  servlet:
+    context-path: "/order"

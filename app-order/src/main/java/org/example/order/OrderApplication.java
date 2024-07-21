@@ -1,8 +1,9 @@
 package org.example.order;
 
 import org.example.rest.EnableServiceCommunication;
+import org.example.rest.Order;
 import org.example.rest.User;
-import org.example.rest.service.UserFeignClient;
+import org.example.rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,20 +23,17 @@ public class OrderApplication {
 	@RestController
 	public static class Controller {
 
-		private final UserFeignClient userFeignClient;
+		private final UserService userService;
 
 		@Autowired
-		public Controller(UserFeignClient userFeignClient) {
-			this.userFeignClient = userFeignClient;
-		}
-
-		public User getUserById(User.ID id) {
-			return userFeignClient.getUserById(id.value());
+		public Controller(UserService userService) {
+			this.userService = userService;
 		}
 
 		@GetMapping("/{id}")
-		public ResponseEntity<User> get(@PathVariable Long id) {
-			return ResponseEntity.ok(this.getUserById(new User.ID(id)));
+		public ResponseEntity<Order> get(@PathVariable Long id) {
+			User userInfo = userService.getUserById(new User.ID(id));
+			return ResponseEntity.ok(new Order(new Order.ID(2L), "订单编号"));
 		}
 	}
 }
