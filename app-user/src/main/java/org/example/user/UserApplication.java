@@ -1,4 +1,4 @@
-package org.example.app.user;
+package org.example.user;
 
 import org.example.rest.User;
 import org.springframework.boot.SpringApplication;

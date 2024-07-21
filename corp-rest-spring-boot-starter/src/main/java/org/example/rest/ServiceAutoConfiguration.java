@@ -13,13 +13,12 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 
 @EnableConfigurationProperties(value = ServiceProperties.class)
 @Configuration
-
 public class ServiceAutoConfiguration {
 
-	private final ServiceProperties userAPP;
+	private final ServiceProperties user;
 
-	public ServiceAutoConfiguration(ServiceProperties userAPP) {
-		this.userAPP = userAPP;
+	public ServiceAutoConfiguration(ServiceProperties user) {
+		this.user = user;
 	}
 
 	@Bean
@@ -33,6 +32,6 @@ public class ServiceAutoConfiguration {
 			.contract(new SpringMvcContract())
 			.decoder(feignDecoder())
 			// 其他必要的配置
-			.target(UserFeignClient.class, userAPP.getUser().getHost());
+			.target(UserFeignClient.class, user.getUser().getHost());
 	}
 }
