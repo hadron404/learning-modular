@@ -22,7 +22,7 @@ dependencies {
     api("org.springframework.cloud:spring-cloud-starter-openfeign")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    api(project(":rest-model"))
+    api(project(":rest-domain"))
 }
 
 dependencyManagement {
