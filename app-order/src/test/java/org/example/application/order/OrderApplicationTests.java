@@ -1,13 +1,12 @@
-package org.example.user;
+package org.example.application.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserApplicationTests {
+class OrderApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void name() {
 	}
-
 }

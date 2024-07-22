@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import({ServiceAutoConfiguration.class})
+@Import({ApplicationAutoConfiguration.class})
 @EnableFeignClients
-public @interface EnableServiceCommunication {
+public @interface EnableApplicationCommunication {
 }

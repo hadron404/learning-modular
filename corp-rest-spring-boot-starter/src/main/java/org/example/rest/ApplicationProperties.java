@@ -2,28 +2,28 @@ package org.example.rest;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "svc")
-public class ServiceProperties {
-	private URL user = new URL();
-	private URL order = new URL();
+@ConfigurationProperties(prefix = "application")
+public class ApplicationProperties {
+	private ServerProperties user = new ServerProperties();
+	private ServerProperties order = new ServerProperties();
 
-	public URL getOrder() {
+	public ServerProperties getOrder() {
 		return order;
 	}
 
-	public void setOrder(URL order) {
+	public void setOrder(ServerProperties order) {
 		this.order = order;
 	}
 
-	public URL getUser() {
+	public ServerProperties getUser() {
 		return user;
 	}
 
-	public void setUser(URL user) {
+	public void setUser(ServerProperties user) {
 		this.user = user;
 	}
 
-	public static class URL {
+	public static class ServerProperties {
 		private String host;
 		private String path;
 		private int port = 80;

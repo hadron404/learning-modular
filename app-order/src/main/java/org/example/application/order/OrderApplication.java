@@ -1,9 +1,9 @@
-package org.example.order;
+package org.example.application.order;
 
-import org.example.rest.EnableServiceCommunication;
-import org.example.rest.Order;
-import org.example.rest.User;
-import org.example.rest.service.UserService;
+import org.example.rest.EnableApplicationCommunication;
+import org.example.application.domain.Order;
+import org.example.application.domain.User;
+import org.example.rest.application.UserApp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@EnableServiceCommunication
+@EnableApplicationCommunication
 public class OrderApplication {
 
 	public static void main(String[] args) {
@@ -23,16 +23,16 @@ public class OrderApplication {
 	@RestController
 	public static class Controller {
 
-		private final UserService userService;
+		private final UserApp userApp;
 
 		@Autowired
-		public Controller(UserService userService) {
-			this.userService = userService;
+		public Controller(UserApp userApp) {
+			this.userApp = userApp;
 		}
 
 		@GetMapping("/{id}")
 		public ResponseEntity<Order> get(@PathVariable Long id) {
-			User userInfo = userService.getUserById(new User.ID(id));
+			User userInfo = userApp.getUserById(new User.ID(id));
 			return ResponseEntity.ok(new Order(new Order.ID(2L), "订单编号"));
 		}
 	}

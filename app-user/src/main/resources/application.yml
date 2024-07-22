@@ -5,7 +5,7 @@ server:
   port: 80
   servlet:
     context-path: "/user"
-svc:
+application:
   order:
     host: http://localhost
     port: 8080

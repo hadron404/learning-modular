@@ -1,14 +1,14 @@
-package org.example.rest.service;
+package org.example.rest.feignclient;
 
 
-import org.example.rest.User;
+import org.example.application.domain.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-@FeignClient(name = "user-service")
-public interface UserFeignClient {
+@FeignClient(name = "user-client")
+public interface UserClient {
 	@GetMapping("/{id}")
 	User getUserById(@PathVariable("id") Long ID);
 }
