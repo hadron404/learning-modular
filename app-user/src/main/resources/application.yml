@@ -10,7 +10,3 @@ svc:
     host: http://localhost
     port: 8080
     path: order
-  user:
-    host: http://localhost
-    port: 80
-    path: user
