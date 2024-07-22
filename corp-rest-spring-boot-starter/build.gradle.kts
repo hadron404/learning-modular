@@ -1,5 +1,5 @@
 plugins {
-    id("java")
+    id("java-library")
     id("org.springframework.boot") version ("3.3.2")
     id("io.spring.dependency-management") version ("1.1.6")
 }
@@ -19,13 +19,10 @@ repositories {
 extra["springCloudVersion"] = "2023.0.3"
 
 dependencies {
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    api("org.springframework.cloud:spring-cloud-starter-openfeign")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    implementation(project(":rest-model"))
-//    testCompileOnly(project(":rest-model"))
-
+    api(project(":rest-model"))
 }
 
 dependencyManagement {

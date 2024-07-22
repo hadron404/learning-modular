@@ -25,14 +25,11 @@ repositories {
 extra["springCloudVersion"] = "2023.0.3"
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    compileOnly(project(":corp-rest-spring-boot-starter"))
-    compileOnly(project(":rest-model"))
-//    testCompileOnly(project(":rest-model"))
+    implementation(project(":corp-rest-spring-boot-starter"))
 }
 dependencyManagement {
     imports {
