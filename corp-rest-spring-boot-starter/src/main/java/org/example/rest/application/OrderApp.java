@@ -1,16 +1,16 @@
 package org.example.rest.application;
 
 import org.example.application.domain.Order;
-import org.example.rest.feignclient.OrderClient;
+import org.example.rest.feignclient.OrderOpenClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrderApp {
-	private final OrderClient orderClient;
+	private final OrderOpenClient orderClient;
 
 	@Autowired
-	public OrderApp(OrderClient orderClient) {
+	public OrderApp(OrderOpenClient orderClient) {
 		this.orderClient = orderClient;
 	}
 

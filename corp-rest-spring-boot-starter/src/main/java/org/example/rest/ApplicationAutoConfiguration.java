@@ -2,9 +2,9 @@ package org.example.rest;
 
 import feign.Feign;
 import feign.codec.Decoder;
-import org.example.rest.feignclient.OrderClient;
+import org.example.rest.feignclient.OrderOpenClient;
 import org.example.rest.application.OrderApp;
-import org.example.rest.feignclient.UserClient;
+import org.example.rest.feignclient.UserOpenClient;
 import org.example.rest.application.UserApp;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -21,10 +21,10 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 @ConditionalOnClass(ApplicationProperties.class)
 public class ApplicationAutoConfiguration {
 
-	private final ApplicationProperties services;
+	private final ApplicationProperties apps;
 
-	public ApplicationAutoConfiguration(ApplicationProperties services) {
-		this.services = services;
+	public ApplicationAutoConfiguration(ApplicationProperties apps) {
+		this.apps = apps;
 	}
 
 	@Bean
@@ -44,7 +44,7 @@ public class ApplicationAutoConfiguration {
 		return new UserApp(
 			builder()
 				// 其他必要的配置
-				.target(UserClient.class, services.getUser().toURL())
+				.target(UserOpenClient.class, apps.getUser().toURL())
 		);
 	}
 
@@ -54,7 +54,7 @@ public class ApplicationAutoConfiguration {
 		return new OrderApp(
 			builder()
 				// 其他必要的配置
-				.target(OrderClient.class, services.getOrder().toURL())
+				.target(OrderOpenClient.class, apps.getOrder().toURL())
 		);
 	}
 

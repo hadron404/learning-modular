@@ -19,10 +19,10 @@ repositories {
 extra["springCloudVersion"] = "2023.0.3"
 
 dependencies {
-    api("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    api(project(":rest-domain"))
+    api(project(":rest-api"))
 }
 
 dependencyManagement {

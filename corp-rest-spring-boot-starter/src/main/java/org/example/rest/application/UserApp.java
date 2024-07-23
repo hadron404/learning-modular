@@ -1,16 +1,16 @@
 package org.example.rest.application;
 
 import org.example.application.domain.User;
-import org.example.rest.feignclient.UserClient;
+import org.example.rest.feignclient.UserOpenClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserApp {
-	private final UserClient userClient;
+	private final UserOpenClient userClient;
 
 	@Autowired
-	public UserApp(UserClient userClient) {
+	public UserApp(UserOpenClient userClient) {
 		this.userClient = userClient;
 	}
 
