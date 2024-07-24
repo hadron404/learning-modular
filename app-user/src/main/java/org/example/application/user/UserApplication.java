@@ -4,6 +4,7 @@ import org.example.application.api.open.UserOpenAPI;
 import org.example.application.domain.User;
 import org.example.rest.EnableApplicationCommunication;
 import org.example.rest.application.OrderApp;
+import org.example.web.EnableWebResponseAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @EnableApplicationCommunication
+@EnableWebResponseAdvice
 public class UserApplication {
 
 	public static void main(String[] args) {

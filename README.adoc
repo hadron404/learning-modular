@@ -58,3 +58,26 @@ OpenAPI 时，Service-C 里一定充斥者和 Service-B 相似的代码及结构
 
 // 关于企业项目的应用通信的组织方式与实践
 // todo 项目名称不应叫 learning-modular，应该叫 learning-application-communication
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// todo 统一的响应Wrapper
+// todo 统一的响应UnWrapper
+// todo 异常处理及错误码设计
+// todo 更改模块名称
+
+
+
+

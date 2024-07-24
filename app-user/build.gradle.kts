@@ -22,20 +22,23 @@ configurations {
 repositories {
     mavenCentral()
 }
+
 extra["springCloudVersion"] = "2023.0.3"
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation(project(":corp-rest-spring-boot-starter"))
+    implementation(project(":corp-rest-response-spring-boot-starter"))
 }
+
 dependencyManagement {
     imports {
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
     }
 }
+
 tasks.withType<Test> {
     useJUnitPlatform()
 }
