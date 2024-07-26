@@ -10,6 +10,9 @@ application:
     host: http://localhost
     port: 8080
     path: order
+#    web response 的应用
 web:
   response:
     enabled: true
+
+

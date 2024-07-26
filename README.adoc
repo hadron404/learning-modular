@@ -73,11 +73,21 @@ OpenAPI 时，Service-C 里一定充斥者和 Service-B 相似的代码及结构
 
 
 
-// todo 统一的响应Wrapper
-// todo 统一的响应UnWrapper
+// todo 统一的请求编码器
+// todo 统一的请求解码器
 // todo 异常处理及错误码设计
 // todo 更改模块名称
 
+// yaml配置设计 spring 的openfeign 可能做了类似设计，可以参考或者结合
+//  web.application.{app-name} // web应用
+//  web.application.{order}.host //web应用的主机地址
+//  web.application.{order}.port //web应用的端口号
+//  web.application.{order}.path //web应用的统一前缀
+
+
+//  web.response.encoder.enabled = true // todo 启用企业特殊的编码器
+//  web.response.decoder.enabled = true // todo 启用响应特殊的解码器
+//  请求参数和响应的策略：
 
 
 

@@ -1,0 +1,2 @@
+实现请求的统一包装成企业定制数据格式。
+// ResponseBodyAdvice
